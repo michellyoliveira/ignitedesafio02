@@ -16,12 +16,10 @@ interface GenreResponseProps {
   title: string;
 }
 
-
 export function App() {
   const [selectedGenreId, setSelectedGenreId] = useState(1);
 
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
-
 
   useEffect(() => {
     api.get<GenreResponseProps>(`genres/${selectedGenreId}`).then(response => {
@@ -34,11 +32,9 @@ export function App() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
-      
-      <SideBar selectedGenreId={selectedGenreId}handleClickButton={handleClickButton} />
-      <Content selectedGenreId={selectedGenreId} selectedGenre={selectedGenre} />
-      
+    <div style={{ display: 'flex', flexDirection: 'row' }}>      
+      <SideBar selectedGenreId={selectedGenreId} handleClickButton={handleClickButton} />
+      <Content selectedGenreId={selectedGenreId} selectedGenre={selectedGenre} />      
     </div>
   )
 }
